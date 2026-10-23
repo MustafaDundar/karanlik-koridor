@@ -1,0 +1,14 @@
+{
+  "asset": "cabinet-concept.webp",
+  "status": "reference_only_not_3d",
+  "platform": "Hugging Face Space via MCP",
+  "space": "evalstate/flux1_schnell",
+  "model": "black-forest-labs/FLUX.1-schnell",
+  "seed": 73124,
+  "steps": 4,
+  "width": 1024,
+  "height": 1024,
+  "sha256": "737e57b5ce2f03f43bddf99fbe4cc48708dc318fa3c23565ec763362b9184269",
+  "prompt": "A single old hospital bedside cabinet, chipped pale mint painted steel, two closed drawers, dark iron handles, rust around edges, solid rectangular body and four short sturdy legs, isolated on plain white background, three quarter front view, entire object visible, realistic game prop, soft neutral studio lighting, no text, no extra objects.",
+  "review": "Visually reviewed: usable as shape/material reference. No mesh, rig or animation claimed."
+}

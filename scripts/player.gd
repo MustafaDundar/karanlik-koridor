@@ -9,7 +9,8 @@ var camera: Camera3D
 var light: SpotLight3D
 var battery := 100.0
 var is_flashlight_on := true
-var hud: Label
+var controls_enabled := true
+var stride := 0.0
 
 func _ready() -> void:
     name = "Player"
@@ -34,6 +35,8 @@ func _ready() -> void:
     Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _unhandled_input(event: InputEvent) -> void:
+    if not controls_enabled:
+        return
     if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
         rotate_y(-event.relative.x * MOUSE_SENS)
         camera.rotate_x(-event.relative.y * MOUSE_SENS)
@@ -46,6 +49,9 @@ func _unhandled_input(event: InputEvent) -> void:
         Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
+    if not controls_enabled or (Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and DisplayServer.get_name() != "headless"):
+        velocity = Vector3.ZERO
+        return
     var motion := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
     var speed := RUN_SPEED if Input.is_action_pressed("sprint") else WALK_SPEED
     var direction := (transform.basis * Vector3(motion.x, 0, motion.y)).normalized()
@@ -56,6 +62,9 @@ func _physics_process(delta: float) -> void:
     else:
         velocity.y = 0.0
     move_and_slide()
+    if motion.length() > 0.1 and is_on_floor():
+        stride += delta * speed * 2.4
+    camera.position.y = lerpf(camera.position.y, 0.55 + sin(stride) * 0.025 * motion.length(), minf(1.0, delta * 12.0))
     if is_flashlight_on and battery > 0.0:
         battery = maxf(0.0, battery - delta * 0.65)
     light.visible = is_flashlight_on and battery > 0.0

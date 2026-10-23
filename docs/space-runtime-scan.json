@@ -1,0 +1,858 @@
+[
+  {
+    "space": "stabilityai/TripoSR",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "stabilityai-triposr.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "hansyan/perflow-triposr",
+    "stage": "CONFIG_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "hansyan-perflow-triposr.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "cocktailpeanut/TripoSR",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "cocktailpeanut-triposr.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "WeReCooking2/Dust3R-TripoSR",
+    "stage": "RUNNING",
+    "hardware": "cpu-basic",
+    "domains": [
+      {
+        "domain": "luminia-dust3r-triposr.hf.space",
+        "stage": "READY"
+      },
+      {
+        "domain": "werecooking-dust3r-triposr.hf.space",
+        "stage": "READY"
+      },
+      {
+        "domain": "werecooking2-dust3r-triposr.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "Muffy1507/imaGEN-TripoSR",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "muffy1507-imagen-triposr.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "Pheerakarn/TripoSR",
+    "stage": "RUNNING",
+    "hardware": "zero-a10g",
+    "domains": [
+      {
+        "domain": "pheerakarn-triposr.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "Jose16062007/TripoSR",
+    "stage": "RUNNING",
+    "hardware": "zero-a10g",
+    "domains": [
+      {
+        "domain": "jose16062007-triposr.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "cocktailpeanut/perflow-triposr",
+    "stage": "BUILD_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "cocktailpeanut-perflow-triposr.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "elioonpc/TripoSRBlender",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "elioonpc-triposrblender.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "tsi-org/perflow-triposr",
+    "stage": "PAUSED",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "tsi-org-perflow-triposr.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "seawolf2357/TripoSR",
+    "stage": "PAUSED",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "seawolf2357-triposr.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "mrdas/TripoSR",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "mrdas-triposr.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "michaelj/TripoSR",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "michaelj-triposr.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "bigskaven/perflow-triposr",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "bigskaven-perflow-triposr.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "Mathdesenvnonimate/TripoSR",
+    "stage": "CONFIG_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "mathdesenvnonimate-triposr.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "hysts/Shap-E",
+    "stage": "RUNNING",
+    "hardware": "zero-a10g",
+    "domains": [
+      {
+        "domain": "hysts-shap-e.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "fotographerai/Zen-Style-Shape",
+    "stage": "PAUSED",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "fotographerai-zen-style-shape.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "fffiloni/Image-Caption-2-Shap-E",
+    "stage": "PAUSED",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "fffiloni-image-caption-2-shap-e.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "silentchen/Shap_Editor_demo",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "silentchen-shap-editor-demo.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "dhof/shapetest",
+    "stage": "PAUSED",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "dhof-shapetest.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "ibaiGorordo/Lane-Shape-Prediction-with-Transformers",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "ibaigorordo-lane-shape-prediction-with-transformers.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "MirageML/shap-e",
+    "stage": "RUNNING",
+    "hardware": "cpu-basic",
+    "domains": [
+      {
+        "domain": "mirageml-shap-e.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "PeepDaSlan9/HYDRAS_Yntec-ShapeShifter",
+    "stage": "PAUSED",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "peepdaslan9-hydras-yntec-shapeshifter.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "edbeeching/ShapeNetViz",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "edbeeching-shapenetviz.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "ShapeNet/shapenet-explorer",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "shapenet-shapenet-explorer.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "shape-guided-diffusion/shape-guided-diffusion",
+    "stage": "BUILD_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "shape-guided-diffusion-shape-guided-diffusion.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "dogincharge/Shap-ER",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "dogincharge-shap-er.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "minhquang053/face-shape-classificator",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "minhquang053-face-shape-classificator.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "shapermindai/chat-ui-pyg",
+    "stage": "BUILD_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "shapermindai-chat-ui-pyg.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "shapermindai/seo-ez",
+    "stage": "RUNNING",
+    "hardware": null,
+    "domains": null
+  },
+  {
+    "space": "tencent/Hunyuan3D-2",
+    "stage": "RUNNING",
+    "hardware": "zero-a10g",
+    "domains": [
+      {
+        "domain": "tencent-hunyuan3d-2.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "tencent/Hunyuan3D-2.1",
+    "stage": "RUNNING",
+    "hardware": "zero-a10g",
+    "domains": [
+      {
+        "domain": "tencent-hunyuan3d-2-1-test.hf.space",
+        "stage": "READY"
+      },
+      {
+        "domain": "tencent-hunyuan3d-2-1.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "tencent/Hunyuan3D-2mv",
+    "stage": "RUNNING",
+    "hardware": "zero-a10g",
+    "domains": [
+      {
+        "domain": "tencent-hunyuan3d-2mv-turbo.hf.space",
+        "stage": "READY"
+      },
+      {
+        "domain": "tencent-hunyuan3d-2mv.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "tencent/Hunyuan3D-1",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "tencent-hunyuan3d-1.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "tencent/Hunyuan3D-2mini-Turbo",
+    "stage": "RUNNING",
+    "hardware": "zero-a10g",
+    "domains": [
+      {
+        "domain": "tencent-hunyuan3d-2mini-turbo.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "tencent/Hunyuan3D-Part",
+    "stage": "RUNNING",
+    "hardware": "zero-a10g",
+    "domains": [
+      {
+        "domain": "tencent-hunyuan3d-part.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "Jbowyer/Hunyuan3D-2.1",
+    "stage": "PAUSED",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "jbowyer-hunyuan3d-2-1.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "mubarak-alketbi/Hunyuan3D-2mini-Turbo",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "mubarak-alketbi-hunyuan3d-2mini-turbo.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "Bton/Hunyuan3D-2.1",
+    "stage": "BUILD_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "bton-hunyuan3d-2-1.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "theseanlavery/Hunyuan3D-2-Cyborg",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "theseanlavery-hunyuan3d-2-cyborg.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "dylanebert/Hunyuan3D-2.1",
+    "stage": "RUNNING",
+    "hardware": "zero-a10g",
+    "domains": [
+      {
+        "domain": "dylanebert-hunyuan3d-2-1.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "victor/Hunyuan3D-2.1",
+    "stage": "BUILD_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "victor-hunyuan3d-2-1.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "NicolasG2523/Hunyuan3D-2",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "nicolasg2523-hunyuan3d-2.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "mukaist/Hunyuan3D-2",
+    "stage": "PAUSED",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "mukaist-hunyuan3d-2.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "chengzhigang/Hunyuan3D-2.1-2025-12-11",
+    "stage": "PAUSED",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "chengzhigang-hunyuan3d-2-1-2025-12-11.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "microsoft/TRELLIS",
+    "stage": "CONFIG_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "microsoft-trellis.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "microsoft/TRELLIS.2",
+    "stage": "RUNNING",
+    "hardware": "zero-a10g",
+    "domains": [
+      {
+        "domain": "microsoft-trellis-2.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "trellis-community/TRELLIS",
+    "stage": "RUNNING",
+    "hardware": "zero-a10g",
+    "domains": [
+      {
+        "domain": "trellis-community-trellis.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "theseanlavery/TRELLIS-3D",
+    "stage": "CONFIG_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "theseanlavery-trellis-3d.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "gokaygokay/Flux-TRELLIS",
+    "stage": "RUNNING",
+    "hardware": "zero-a10g",
+    "domains": [
+      {
+        "domain": "gokaygokay-flux-trellis.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "crevelop/Trellis",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "crevelop-trellis.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "cavargas10/TRELLIS-Multiple3D",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "cavargas10-trellisprueba.hf.space",
+        "stage": "READY"
+      },
+      {
+        "domain": "cavargas10-trellis-multiple3d.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "prithivMLmods/TRELLIS.2-Text-to-3D",
+    "stage": "RUNNING",
+    "hardware": "zero-a10g",
+    "domains": [
+      {
+        "domain": "prithivmlmods-trellis-2-text-to-3d.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "innoai/TRELLIS",
+    "stage": "RUNNING",
+    "hardware": "cpu-basic",
+    "domains": [
+      {
+        "domain": "innoai-trellis.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "PUM4CH3N/TRELLIS_TextTo3D",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "pum4ch3n-trellis-textto3d.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "cavargas10/TRELLIS-Imagen3D",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "cavargas10-trellis-single.hf.space",
+        "stage": "READY"
+      },
+      {
+        "domain": "cavargas10-trellis-imagen3d.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "hysts-mcp/TRELLIS",
+    "stage": "CONFIG_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "hysts-mcp-trellis.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "opsiclear-admin/Trellis.2.multiview",
+    "stage": "CONFIG_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "opsiclear-admin-trellis-2-multiview.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "jainarham/trellis-3d-api",
+    "stage": "RUNNING",
+    "hardware": "cpu-basic",
+    "domains": [
+      {
+        "domain": "jainarham-trellis-3d-api.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "cavargas10/TRELLIS-TextoImagen3D",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "cavargas10-flux-trellis4444.hf.space",
+        "stage": "READY"
+      },
+      {
+        "domain": "cavargas10-trellis-textoimagen3d.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "Karayakar/Orpheus-TTS-Turkish",
+    "stage": "RUNNING",
+    "hardware": "cpu-basic",
+    "domains": [
+      {
+        "domain": "karayakar-orpheus-tts-turkish.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "99eren99/turkish-tts",
+    "stage": "RUNNING",
+    "hardware": "cpu-basic",
+    "domains": [
+      {
+        "domain": "99eren99-temp.hf.space",
+        "stage": "READY"
+      },
+      {
+        "domain": "99eren99-turkish-tts.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "EmreAkgul/turkish-tts-arena",
+    "stage": "RUNNING",
+    "hardware": "zero-a10g",
+    "domains": [
+      {
+        "domain": "emreakgul-turkish-tts-arena.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "hugging-apps/freya-tts-turkish",
+    "stage": "RUNNING",
+    "hardware": "zero-a10g",
+    "domains": [
+      {
+        "domain": "hugging-apps-freya-tts-turkish.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "wite-tech/pocket-tts-turkish",
+    "stage": "RUNNING",
+    "hardware": "cpu-basic",
+    "domains": [
+      {
+        "domain": "wite-tech-pocket-tts-turkish.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "canberkkkkkk/ema-tts-turkish-demo",
+    "stage": "RUNNING",
+    "hardware": "zero-a10g",
+    "domains": [
+      {
+        "domain": "hugging-apps-ema-tts-turkish-demo.hf.space",
+        "stage": "READY"
+      },
+      {
+        "domain": "canberkkkkkk-ema-tts-turkish-demo.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "umarigan/turkishtts",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "umarigan-turkishtts.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "Omarrran/turkish_finetuned_speecht5_tts",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "omarrran-turkish-finetuned-speecht5-tts.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "denizgil/turkish-tts",
+    "stage": "RUNNING",
+    "hardware": "zero-a10g",
+    "domains": [
+      {
+        "domain": "denizgil-turkish-tts.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "AKALabs/turkish-f5-tts",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "akalabs-turkish-f5-tts.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "msoguz/turkish_finetuned_speecht5_tts",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "msoguz-turkish-finetuned-speecht5-tts.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "WildGenie/turkish-tts",
+    "stage": "RUNTIME_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "wildgenie-turkish-tts.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "drascom/turkish_finetuned_speecht5_tts",
+    "stage": "BUILD_ERROR",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "drascom-turkish-finetuned-speecht5-tts.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "kasimisik01/xtts-turkish-tts",
+    "stage": "SLEEPING",
+    "hardware": null,
+    "domains": [
+      {
+        "domain": "kasimisik01-xtts-turkish-tts.hf.space",
+        "stage": "READY"
+      }
+    ]
+  },
+  {
+    "space": "akhaliq/ema-tts-turkish-workflow",
+    "stage": "RUNNING",
+    "hardware": "zero-a10g",
+    "domains": [
+      {
+        "domain": "akhaliq-ema-tts-turkish-workflow.hf.space",
+        "stage": "READY"
+      }
+    ]
+  }
+]
