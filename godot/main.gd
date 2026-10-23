@@ -29,8 +29,27 @@ var buttons := {}
 var touch := {}
 var touch_look_id := -1
 var last_touch_x := 0.0
+var art := {}
+var wall_tex: Texture2D
+var floor_tex: Texture2D
+var monster_tex: Texture2D
+
+func load_hf_texture(asset: String) -> Texture2D:
+	var path := "res://assets/" + asset + ".webp.b64"
+	if not FileAccess.file_exists(path):
+		return null
+	var base64 := FileAccess.get_file_as_string(path).strip_edges()
+	var bytes := Marshalls.base64_to_raw(base64)
+	var image := Image.new()
+	if image.load_webp_from_buffer(bytes) != OK:
+		return null
+	return ImageTexture.create_from_image(image)
+
 
 func _ready() -> void:
+	wall_tex = load_hf_texture("wall")
+	floor_tex = load_hf_texture("floor")
+	monster_tex = load_hf_texture("monster")
 	set_process(true)
 
 func solid(p: Vector2) -> bool:
@@ -136,7 +155,14 @@ func _draw() -> void:
 		depths.append(distance)
 		var wall_height := minf(h*2.0,h/maxf(0.15,distance))
 		var intensity := (maxf(0.035,1.0-abs(float(ix)/w-0.5)*1.6) if flashlight else 0.065) / (1.0+distance*0.22)
-		draw_rect(Rect2(ix,h/2-wall_height/2,stride+1,wall_height),Color(0.45,0.62,0.75)*intensity)
+		var top := h/2-wall_height/2
+		if wall_tex:
+			var hit := player+Vector2(cos(angle),sin(angle))*distance/maxf(0.01,cos(angle-facing))
+			var uv := fposmod(hit.x if abs(sin(angle)) > abs(cos(angle)) else hit.y,1.0)
+			var tex_rect := Rect2(uv*wall_tex.get_width(),0,maxf(1.0,wall_tex.get_width()*0.008),wall_tex.get_height())
+			draw_texture_rect_region(wall_tex,Rect2(ix,top,stride+1,wall_height),tex_rect,Color(intensity*2.1,intensity*2.1,intensity*2.1))
+		else:
+			draw_rect(Rect2(ix,top,stride+1,wall_height),Color(0.45,0.62,0.75)*intensity)
 	var sprites := []
 	for k in keys: sprites.append([k,"key"])
 	sprites.append([Vector2(13.5,12.5),"exit"])
@@ -154,8 +180,11 @@ func _draw() -> void:
 		if depths[column] < d-0.3: continue
 		var sprite_height := minf(h*1.5,h/d*(0.3 if kind=="key" else 1.0))
 		var color := Color(0.9,0.73,0.18) if kind=="key" else (Color(0.18,0.72,0.3) if kind=="exit" and found==3 else (Color(0.42,0.13,0.1) if kind=="exit" else Color(0.1,0.01,0.025)))
-		draw_rect(Rect2(screen_x-sprite_height*0.15,h/2-sprite_height/2,sprite_height*0.3,sprite_height),color)
-		if kind=="enemy":
+		if kind == "enemy" and monster_tex:
+			draw_texture_rect(monster_tex,Rect2(screen_x-sprite_height*0.34,h/2-sprite_height/2,sprite_height*0.68,sprite_height),false,Color(0.8,0.8,0.8))
+		else:
+			draw_rect(Rect2(screen_x-sprite_height*0.15,h/2-sprite_height/2,sprite_height*0.3,sprite_height),color)
+		if kind=="enemy" and monster_tex == null:
 			draw_rect(Rect2(screen_x-sprite_height*0.08,h/2-sprite_height*0.25,sprite_height*0.045,sprite_height*0.025),Color.RED)
 			draw_rect(Rect2(screen_x+sprite_height*0.035,h/2-sprite_height*0.25,sprite_height*0.045,sprite_height*0.025),Color.RED)
 	draw_label(Vector2(16,32),"Fener: %d%%   Anahtar: %d/3" % [int(battery),found],23)
