@@ -119,10 +119,20 @@ func _ready() -> void:
 	monster.position = Vector3(12.5,0,12.5)
 	var monster_body := Node3D.new()
 	monster.add_child(monster_body)
+	var model_path := "res://assets/monster.glb"
+	if ResourceLoader.exists(model_path):
+		var scene := load(model_path) as PackedScene
+		if scene:
+			var visual := scene.instantiate()
+			monster_body.add_child(visual)
+			visual.scale = Vector3.ONE * 0.8
+			visual.position.y = 0.05
 	var dark := material(Color(0.12,0.035,0.045))
-	box(monster_body,Vector3(0,1.0,0),Vector3(0.55,1.6,0.3),dark)
-	box(monster_body,Vector3(0,2.0,0),Vector3(0.44,0.52,0.36),material(Color(0.67,0.61,0.58)))
-	for side in [-1.0,1.0]:
+	if not ResourceLoader.exists(model_path):
+		box(monster_body,Vector3(0,1.0,0),Vector3(0.55,1.6,0.3),dark)
+	if not ResourceLoader.exists(model_path):
+		box(monster_body,Vector3(0,2.0,0),Vector3(0.44,0.52,0.36),material(Color(0.67,0.61,0.58)))
+	for side in ([] if ResourceLoader.exists(model_path) else [-1.0,1.0]):
 		box(monster_body,Vector3(side*0.4,1.05,0),Vector3(0.15,1.45,0.15),dark)
 		box(monster_body,Vector3(side*0.16,0.3,0),Vector3(0.18,0.65,0.2),dark)
 		box(monster_body,Vector3(side*0.11,2.06,-0.19),Vector3(0.09,0.05,0.06),material(Color(1,0.02,0.01)))
