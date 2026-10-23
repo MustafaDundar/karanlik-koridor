@@ -29,7 +29,8 @@ var buttons := {}
 var touch := {}
 var touch_look_id := -1
 var last_touch_x := 0.0
-var art := {}
+var sound_player: AudioStreamPlayer
+var scare_cooldown := 0.0
 var wall_tex: Texture2D
 var floor_tex: Texture2D
 var monster_tex: Texture2D
@@ -50,12 +51,33 @@ func _ready() -> void:
 	wall_tex = load_hf_texture("wall")
 	floor_tex = load_hf_texture("floor")
 	monster_tex = load_hf_texture("monster")
+	sound_player = AudioStreamPlayer.new()
+	add_child(sound_player)
+	sound_player.volume_db = -15.0
 	set_process(true)
 
 func solid(p: Vector2) -> bool:
 	var cx := int(floor(p.x))
 	var cy := int(floor(p.y))
 	return cy < 0 or cy >= MAP.size() or cx < 0 or cx >= MAP[cy].length() or MAP[cy][cx] != "0"
+
+func beep(freq: float, duration: float, volume: float = 0.15) -> void:
+	var sample_rate := 22050
+	var frames := int(sample_rate * duration)
+	var data := PackedByteArray()
+	data.resize(frames * 2)
+	for i in range(frames):
+		var envelope := pow(1.0 - float(i)/float(frames),2.0)
+		var v := sin(TAU * freq * float(i)/float(sample_rate)) * envelope * volume
+		var pcm := int(clampf(v,-1.0,1.0)*32767.0)
+		data.encode_s16(i*2,pcm)
+	var stream := AudioStreamWAV.new()
+	stream.format = AudioStreamWAV.FORMAT_16_BITS
+	stream.mix_rate = sample_rate
+	stream.stereo = false
+	stream.data = data
+	sound_player.stream = stream
+	sound_player.play()
 
 func reset() -> void:
 	player = Vector2(1.5,1.5)
@@ -106,9 +128,9 @@ func _process(delta: float) -> void:
 	if ended:
 		queue_redraw()
 		return
-	var turn := float(Input.is_key_pressed(KEY_D) or Input.is_key_pressed(KEY_RIGHT) or active("right")) - float(Input.is_key_pressed(KEY_A) or Input.is_key_pressed(KEY_LEFT) or active("left"))
+	var turn := int(Input.is_key_pressed(KEY_D) or Input.is_key_pressed(KEY_RIGHT) or active("right")) - int(Input.is_key_pressed(KEY_A) or Input.is_key_pressed(KEY_LEFT) or active("left"))
 	facing += turn * delta * 2.0
-	var forward := float(Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_UP) or active("forward")) - float(Input.is_key_pressed(KEY_S) or Input.is_key_pressed(KEY_DOWN) or active("back"))
+	var forward := int(Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_UP) or active("forward")) - int(Input.is_key_pressed(KEY_S) or Input.is_key_pressed(KEY_DOWN) or active("back"))
 	var speed := 3.3 if Input.is_key_pressed(KEY_SHIFT) else 2.2
 	var step := Vector2(cos(facing),sin(facing)) * forward * speed * delta
 	if not solid(player + Vector2(step.x,0)): player.x += step.x
@@ -122,10 +144,16 @@ func _process(delta: float) -> void:
 		if player.distance_to(keys[i]) < 0.5:
 			keys.remove_at(i)
 			found += 1
+			beep(740.0,0.18)
 	if found == 3 and player.distance_to(Vector2(13.5,12.5)) < 0.7:
 		ended = true
 		message = "KURTULDUN! R / dokun: yeniden oyna"
+		beep(960.0,0.65)
 	var d := player.distance_to(enemy)
+	scare_cooldown = maxf(0.0,scare_cooldown-delta)
+	if d < 2.7 and scare_cooldown <= 0.0:
+		beep(68.0,0.22,0.2)
+		scare_cooldown = 1.3
 	if d < 8.0 and d > 0.01:
 		var v := (player-enemy).normalized() * delta * 0.85
 		if not solid(enemy + Vector2(v.x,0)): enemy.x += v.x
@@ -133,6 +161,7 @@ func _process(delta: float) -> void:
 	if player.distance_to(enemy) < 0.52:
 		ended = true
 		message = "SENI BULDU! R / dokun: yeniden oyna"
+		beep(95.0,0.9,0.5)
 	queue_redraw()
 
 func draw_label(pos: Vector2, s: String, size: int = 22, color: Color = Color.WHITE) -> void:
@@ -150,7 +179,7 @@ func _draw() -> void:
 			var brightness := 0.06+perspective*0.15
 			var uv_y := fposmod(player.y+1.0/maxf(0.03,perspective),1.0)
 			draw_texture_rect_region(floor_tex,Rect2(0,fy,w,5),Rect2(0,uv_y*floor_tex.get_height(),floor_tex.get_width(),5),Color(brightness,brightness,brightness))
-	var depths := []
+	var depths: Array[float] = []
 	var stride := 3
 	for ix in range(0,int(w),stride):
 		var angle := facing + atan((float(ix)/w-0.5)*1.25)
@@ -169,7 +198,7 @@ func _draw() -> void:
 			draw_texture_rect_region(wall_tex,Rect2(ix,top,stride+1,wall_height),tex_rect,Color(intensity*2.1,intensity*2.1,intensity*2.1))
 		else:
 			draw_rect(Rect2(ix,top,stride+1,wall_height),Color(0.45,0.62,0.75)*intensity)
-	var sprites := []
+	var sprites: Array = []
 	for k in keys: sprites.append([k,"key"])
 	sprites.append([Vector2(13.5,12.5),"exit"])
 	sprites.append([enemy,"enemy"])
@@ -195,6 +224,10 @@ func _draw() -> void:
 			draw_rect(Rect2(screen_x+sprite_height*0.035,h/2-sprite_height*0.25,sprite_height*0.045,sprite_height*0.025),Color.RED)
 	draw_label(Vector2(16,32),"Fener: %d%%   Anahtar: %d/3" % [int(battery),found],23)
 	draw_label(Vector2(16,60),"WASD: hareket  |  F: fener  |  SHIFT: kos",16,Color(0.8,0.8,0.8))
+	if player.distance_to(enemy) < 3.0:
+		draw_rect(Rect2(0,0,w,8),Color(0.6,0.02,0.02,0.6))
+	if found == 3:
+		draw_label(Vector2(w*0.37,35),"CIKISA GIT!",23,Color(0.3,1.0,0.5))
 	for i in range(4):
 		var labels := ["<","^","v",">"]
 		draw_rect(Rect2(10+i*85,h-90,76,76),Color(0.25,0.26,0.3,0.7))
