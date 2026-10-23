@@ -25,6 +25,11 @@ jobs:
           wget -q https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz
           unzip -q Godot_v4.3-stable_export_templates.tpz
           cp templates/* ~/.local/share/godot/export_templates/4.3.stable/
+      - name: Fetch Hugging Face generated 3D monster
+        run: |
+          mkdir -p godot/assets
+          curl -fL --retry 3 "https://huggingface.co/mustafad123/karanlik-koridor-assets/resolve/main/monster.glb" -o godot/assets/monster.glb
+          test -s godot/assets/monster.glb
       - name: Export Godot to HTML5
         run: |
           mkdir -p godot/build/web
