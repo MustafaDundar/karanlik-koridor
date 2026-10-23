@@ -1,6 +1,7 @@
 extends Node3D
 
 const PlayerScript = preload("res://scripts/player.gd")
+const StalkerScript = preload("res://scripts/stalker.gd")
 var player: CharacterBody3D
 var hud: Label
 var message_time := 0.0
@@ -8,6 +9,7 @@ var door: StaticBody3D
 var door_open := false
 var scare_triggered := false
 var lamps: Array[OmniLight3D] = []
+var stalker: CharacterBody3D
 
 func _ready() -> void:
     _build_environment()
@@ -16,6 +18,11 @@ func _ready() -> void:
     player.set_script(PlayerScript)
     add_child(player)
     _create_hud()
+    stalker = CharacterBody3D.new()
+    stalker.set_script(StalkerScript)
+    stalker.position = Vector3(0, 0, -37)
+    stalker.set("target", player)
+    add_child(stalker)
     _show_message("KARANLIK KORIDOR  |  Cikisi bul.", 5.0)
 
 func _build_environment() -> void:
@@ -104,12 +111,19 @@ func _process(delta: float) -> void:
     var distance := absf(player.position.z + 47.3)
     if player.position.z < -24 and not scare_triggered:
         scare_triggered = true
+        stalker.set("active", true)
         _show_message("Birisi seni izliyor...", 4.0)
     if distance < 2.5 and Input.is_action_just_pressed("interact") and not door_open:
         door_open = true
         door.collision_layer = 0
         door.visible = false
         _show_message("Kapi acildi. Ama arkada ne var?", 6.0)
+    if scare_triggered and player.global_position.distance_to(stalker.global_position) < 1.5:
+        player.position = Vector3(0, 1.1, 3)
+        stalker.position = Vector3(0, 0, -37)
+        stalker.set("active", false)
+        scare_triggered = false
+        _show_message("YAKALANDIN! Tekrar dene.", 3.0)
     if door_open and player.position.z < -47.7:
         _show_message("BOLUM 1 TAMAMLANDI", 1.0)
     if message_time > 0:
