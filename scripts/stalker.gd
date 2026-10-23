@@ -61,6 +61,9 @@ func _limb(label: String, joint: Vector3, size: Vector3, color: Color) -> Node3D
     return pivot
 
 func _physics_process(delta: float) -> void:
+    if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and DisplayServer.get_name() != "headless":
+        velocity = Vector3.ZERO
+        return
     if not active or not is_instance_valid(target):
         return
     var diff := target.global_position - global_position
@@ -78,7 +81,7 @@ func _physics_process(delta: float) -> void:
     else:
         velocity.x = 0.0
         velocity.z = 0.0
-    velocity.y -= 18.0 * delta if not is_on_floor() else 0.0
+    velocity.y = velocity.y - 18.0 * delta if not is_on_floor() else 0.0
     move_and_slide()
     if diff.length() > 0.01:
         rotation.y = lerp_angle(rotation.y, atan2(-diff.x, -diff.z), minf(1.0, 4.0 * delta))

@@ -1,0 +1,8 @@
+.godot/
+**/.godot/
+.DS_Store
+build/
+*.log
+# Retain local raw cloud outputs without committing heavy rejected candidates.
+production/staging/*.glb
+production/staging/*.glb.import
