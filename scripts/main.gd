@@ -74,7 +74,7 @@ func _build_corridor() -> void:
         add_child(lamp)
         lamps.append(lamp)
     door = _make_box("ExitDoor", Vector3(0, 1.5, -47.3), Vector3(2.0, 3.0, 0.25), Color(0.17, 0.19, 0.20)) as StaticBody3D
-    _make_box("EndWall", Vector3(0, 1.7, -48.1), Vector3(5.0, 3.6, 0.3), Color(0.16, 0.20, 0.17))
+    _make_box("EndWall", Vector3(0, 1.7, -50.0), Vector3(5.0, 3.6, 0.3), Color(0.16, 0.20, 0.17))
     for z in [-6, -18, -30, -42]:
         _make_box("Bench", Vector3(1.7, 0.43, z), Vector3(0.8, 0.12, 1.6), Color(0.22, 0.16, 0.12))
     _make_box("DoorSign", Vector3(0, 3.1, -47.05), Vector3(1.3, 0.25, 0.06), Color(0.05, 0.32, 0.14), false)
