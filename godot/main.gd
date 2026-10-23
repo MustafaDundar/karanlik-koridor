@@ -144,6 +144,12 @@ func _draw() -> void:
 	var h := sz.y
 	draw_rect(Rect2(0,0,w,h/2),Color(0.025,0.038,0.055))
 	draw_rect(Rect2(0,h/2,w,h/2),Color(0.07,0.065,0.055))
+	if floor_tex:
+		for fy in range(int(h/2),int(h),5):
+			var perspective := (float(fy)-h/2.0)/maxf(1.0,h/2.0)
+			var brightness := 0.06+perspective*0.15
+			var uv_y := fposmod(player.y+1.0/maxf(0.03,perspective),1.0)
+			draw_texture_rect_region(floor_tex,Rect2(0,fy,w,5),Rect2(0,uv_y*floor_tex.get_height(),floor_tex.get_width(),5),Color(brightness,brightness,brightness))
 	var depths := []
 	var stride := 3
 	for ix in range(0,int(w),stride):
